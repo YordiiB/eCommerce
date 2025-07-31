@@ -1,3 +1,5 @@
+
+
 const express = require("express");
 const bcrypt = require('bcryptjs');
 const fileUpload = require("express-fileupload");
@@ -11,9 +13,11 @@ const orderRouter = require("./routes/customer_orders");
 const slugRouter = require("./routes/slugs");
 const orderProductRouter = require('./routes/customer_order_product');
 const wishlistRouter = require('./routes/wishlist');
-var cors = require("cors");
+const cors = require("cors");
 
 const app = express();
+app.use(cors({ origin: 'http://localhost:3000' }));
+
 
 app.use(express.json());
 app.use(
