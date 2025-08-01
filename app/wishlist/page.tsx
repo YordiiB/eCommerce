@@ -12,7 +12,8 @@ const WishlistPage = () => {
   const {wishlist, setWishlist}= useWishlistStore();
 
   const getWishlistByUserId = async (id: string) => {
-    const response = await fetch(`http://localhost:3001/api/wishlist/${id}`, {
+    // const response = await fetch(`http://localhost:3001/api/wishlist/${id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/wishlist/${id}`, {
       cache: "no-store",
     });
     const wishlist = await response.json();
@@ -25,15 +26,18 @@ const WishlistPage = () => {
       slug:string
       stockAvailabillity: number;
     }[] = [];
-    
+
     wishlist.map((item:any) => productArray.push({id: item?.product?.id, title: item?.product?.title, price: item?.product?.price, image: item?.product?.mainImage, slug: item?.product?.slug, stockAvailabillity: item?.product?.inStock}));
-    
+
     setWishlist(productArray);
   };
 
   const getUserByEmail = async () => {
     if (session?.user?.email) {
-      fetch(`http://localhost:3001/api/users/email/${session?.user?.email}`, {
+      // fetch(`http://localhost:3001/api/users/email/${session?.user?.email}`, {
+      //   cache: "no-store",
+      // })
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/email/${session?.user?.email}`, {
         cache: "no-store",
       })
         .then((response) => response.json())

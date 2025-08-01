@@ -28,13 +28,14 @@ const DashboardCreateNewUser = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(userInput),
         };
-        fetch(`http://localhost:3001/api/users`, requestOptions)
+        // fetch(`http://localhost:3001/api/users`, requestOptions)
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users`, requestOptions)
           .then((response) => {
             if(response.status === 201){
               return response.json();
 
             }else{
-              
+
               throw Error("Error while creating user");
             }
           })

@@ -18,7 +18,7 @@ const Products = async ({ slug }: any) => {
   const page = slug?.searchParams?.page ? Number(slug?.searchParams?.page) : 1;
 
   let stockMode: string = "lte";
-  
+
   // preparing inStock and out of stock filter for GET request
   // If in stock checkbox is checked, stockMode is "equals"
   if (inStockNum === 1) {
@@ -38,8 +38,20 @@ const Products = async ({ slug }: any) => {
   }
 
   // sending API request with filtering, sorting and pagination for getting all products
+  // const data = await fetch(
+  //   `http://localhost:3001/api/products?filters[price][$lte]=${
+  //     slug?.searchParams?.price || 3000
+  //   }&filters[rating][$gte]=${
+  //     Number(slug?.searchParams?.rating) || 0
+  //   }&filters[inStock][$${stockMode}]=1&${
+  //     slug?.params?.slug?.length > 0
+  //       ? `filters[category][$equals]=${slug?.params?.slug}&`
+  //       : ""
+  //   }sort=${slug?.searchParams?.sort}&page=${page}`
+  // );
+
   const data = await fetch(
-    `http://localhost:3001/api/products?filters[price][$lte]=${
+    `${process.env.NEXT_PUBLIC_API_URL}/api/products?filters[price][$lte]=${
       slug?.searchParams?.price || 3000
     }&filters[rating][$gte]=${
       Number(slug?.searchParams?.rating) || 0
@@ -47,9 +59,9 @@ const Products = async ({ slug }: any) => {
       slug?.params?.slug?.length > 0
         ? `filters[category][$equals]=${slug?.params?.slug}&`
         : ""
-    }sort=${slug?.searchParams?.sort}&page=${page}`
+    }sort=${slug?.searchParams?.sort}&page=${page}`,
+    { cache: "no-store" }
   );
-
   const products = await data.json();
 
   /*

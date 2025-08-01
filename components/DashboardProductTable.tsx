@@ -19,7 +19,8 @@ const DashboardProductTable = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/products?mode=admin", {cache: "no-store"})
+    // fetch("http://localhost:3001/api/products?mode=admin", {cache: "no-store"})
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products?mode=admin`, { cache: "no-store" })
       .then((res) => {
         return res.json();
       })
@@ -99,7 +100,7 @@ const DashboardProductTable = () => {
                     </span>) : (<span className="badge badge-error text-white badge-sm">
                       Out of stock
                     </span>) }
-                    
+
                   </td>
                   <td>${product?.price}</td>
                   <th>

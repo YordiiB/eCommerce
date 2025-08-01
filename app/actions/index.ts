@@ -3,7 +3,8 @@
 import { revalidateTag } from "next/cache";
 
 export async function deleteWishItem(id: string){
-  await fetch(`http://localhost:3001/api/wishlist/${id}`, {
+  // await fetch(`http://localhost:3001/api/wishlist/${id}`, {
+  fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/wishlist/${id}`, {
     method: "DELETE",
   });
 }
@@ -19,7 +20,7 @@ export async function deleteWishItem(id: string){
 //     case "newestSort":
 //       redirect("/cars?sort=newestCars");
 //       break;
-    
+
 //     case "oldestSort":
 //       redirect("/cars?sort=oldestCars");
 //       break;
@@ -31,7 +32,7 @@ export async function deleteWishItem(id: string){
 //     case "highPriceSort":
 //       redirect("/cars?sort=highestPrice");
 //       break;
-  
+
 //     default:
 //       redirect("/cars");
 //       break;
@@ -53,7 +54,7 @@ export async function deleteWishItem(id: string){
 //     case "newestSort":
 //       sortQuery = "&sort=newestCars";
 //       break;
-    
+
 //     case "oldestSort":
 //       sortQuery = "&sort=oldestCars";
 //       break;
@@ -65,7 +66,7 @@ export async function deleteWishItem(id: string){
 //     case "highPriceSort":
 //       sortQuery = "&sort=highestPrice";
 //       break;
-  
+
 //     default:
 //       sortQuery = "";
 //       break;
