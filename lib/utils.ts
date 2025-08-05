@@ -1,9 +1,11 @@
 export const categoryMenuList = [
   {
+
+
     id: 1,
-    title: "Smart Phones",
-    src: "/smart phone icon.png",
-    href: "/shop/smart-phones"
+    title: "PCs",
+    src: "/pc icon.png",
+    href: "/shop/computers"
   },
   {
     id: 2,
@@ -36,10 +38,10 @@ export const categoryMenuList = [
     href: "/shop/laptops"
   },
   {
-    id: 7,
-    title: "PCs",
-    src: "/pc icon.png",
-    href: "/shop/computers"
+  id: 7,
+    title: "UPS",
+    src: "/UPS icon.png",
+    href: "/shop/UPS"
   },
   {
     id: 8,
@@ -89,12 +91,12 @@ export const navigation = {
     { name: "Register Discounts", href: "#" },
   ],
   about: [
-    { name: "About Singitronic", href: "#" },
+    { name: "About Hamtek", href: "#" },
     { name: "Work With Us", href: "#" },
     { name: "Company Profile", href: "#" },
   ],
   buy: [
-    { name: "Singitronic Loyalty Card", href: "#" },
+    { name: "Hamtek Loyalty Card", href: "#" },
     { name: "Terms Of Use", href: "#" },
     { name: "Privacy Policy", href: "#" },
     { name: "Complaints", href: "#" },
@@ -102,7 +104,7 @@ export const navigation = {
   ],
   help: [
     { name: "Contact", href: "#" },
-    { name: "How to Buy at Singitronic", href: "#" },
+    { name: "How to Buy at Hamtek", href: "#" },
     { name: "FAQ", href: "#" },
   ],
 };

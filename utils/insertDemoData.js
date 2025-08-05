@@ -5,14 +5,14 @@ const prisma = new PrismaClient();
 const demoProducts = [
   {
     id: "1",
-    title: "Smart phone",
+    title: "Desktop Computers",
     price: 22,
     rating: 5,
-    description: "This is smart phone description",
-    mainImage: "product1.webp",
-    slug: "smart-phone-demo",
+    description: "This is desktop computers description",
+    mainImage: "desktop.webp",
+    slug: "desktop-computers-demo",
     manufacturer: "Samsung",
-    category: "smart-phones",
+    category: "desktop-computers",
     inStock: 0,
   },
   {

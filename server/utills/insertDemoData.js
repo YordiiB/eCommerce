@@ -5,13 +5,13 @@ const prisma = new PrismaClient();
 const demoProducts = [
   {
     id: "1",
-    title: "Smart phone",
+    title: "Deskop Computers",
     price: 22,
     rating: 5,
-    description: "This is smart phone description",
-    mainImage: "product1.webp",
-    slug: "smart-phone-demo",
-    manufacturer: "Samsung",
+    description: "This is desktop computers description",
+    mainImage: "desktop.webp",
+    slug: "desktop-computers-demo",
+    manufacturer: "Dell",
     categoryId: "3117a1b0-6369-491e-8b8b-9fdd5ad9912e",
     inStock: 0,
   },
@@ -214,14 +214,14 @@ const demoCategories = [
 ];
 
 async function insertDemoData() {
-  
+
   for (const category of demoCategories) {
     await prisma.category.create({
       data: category,
     });
   }
   console.log("Demo categories inserted successfully!");
-  
+
   for (const product of demoProducts) {
     await prisma.product.create({
       data: product,
